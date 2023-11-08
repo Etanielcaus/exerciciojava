@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
 public class CalculaTaxa {
     public static void main(String[] args) {
         double salarioAnualAlto = 30000;
@@ -15,18 +18,25 @@ public class CalculaTaxa {
         System.out.println(resultadoBaixo);
 
 
-        double salario = 69000;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Qual o salario Anual?");
+        double salarioAnual = scanner.nextDouble();
         double taxa;
 
-        if (salario < 34.712){
+        if (salarioAnual <= 34.712){
             taxa = 9.7;
-        } else if (salario >= 34.713 && salario < 68507) {
+        } else if (salarioAnual >= 34.713 && salarioAnual < 68507) {
             taxa = 37.55;
         } else {
             taxa = 49.50;
         }
 
-        double resultado = (salario * taxa) / 100;
-        System.out.println(resultado);
+        double resultado = (salarioAnual * taxa) / 100;
+
+        // Formatar o resultado com duas casas decimais
+        DecimalFormat df = new DecimalFormat("0.00");
+        String resultadoFormatado = df.format(resultado);
+
+        System.out.println(resultadoFormatado);
     }
 }
