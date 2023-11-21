@@ -9,20 +9,21 @@ public class FuncionarioOutro {
         System.out.println(this.nome);
         System.out.println(this.idade);
         if (this.salario != null) {
-            for (double salario :
+            for (double salarios :
                     this.salario) {
-                System.out.println(salario);
+                System.out.println(salarios);
             }
             media();
         }
+        if (this.salario == null) {
+            System.out.println("Sem salario");
+        }
     }
 
-    public void media(){
+    private void media(){
         double media = 0;
-        if (this.salario != null) {
-            for (double salario : this.salario) {
-                media += salario;
-            }
+        for (double salario : this.salario) {
+            media += salario;
         }
         media = media / salario.length;
         System.out.println(media);
