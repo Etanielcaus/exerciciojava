@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class ReceberDados {
@@ -15,6 +13,7 @@ public class ReceberDados {
         String idade = scanner.next();
 
         escreverNoArquivo(file, nome, idade);
+        lerArquivo(file);
 
     }
 
@@ -28,5 +27,18 @@ public class ReceberDados {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void lerArquivo(File file){
+        try(FileReader fileReader = new FileReader(file)) {
+            int i;
+            while ((i=fileReader.read()) != -1){
+                System.out.print((char) i);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
