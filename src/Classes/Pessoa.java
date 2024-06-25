@@ -12,6 +12,13 @@ public class Pessoa {
     }
 
     @Override
+    public String toString() {
+        return "Pessoa: " +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade ;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
