@@ -14,5 +14,15 @@ public class ListTest {
         for (Pessoa p : lista) {
             System.out.println(p.toString());
         }
+
+        System.out.println("===");
+        lista.remove(joao);
+
+        if (lista.contains(maria)){
+            lista.remove(maria);
+        }
+        for (Pessoa p : lista) {
+            System.out.println(p.toString());
+        }
     }
 }
