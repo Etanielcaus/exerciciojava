@@ -5,9 +5,15 @@ import java.util.Objects;
 
 public class Comida implements Comparable<Comida>{
     private String nome;
+    private int id;
 
     public Comida(String nome) {
         this.nome = nome;
+    }
+
+    public Comida(String nome, int id) {
+        this.nome = nome;
+        this.id = id;
     }
 
     @Override
@@ -34,6 +40,14 @@ public class Comida implements Comparable<Comida>{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
