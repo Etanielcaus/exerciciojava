@@ -13,7 +13,7 @@ public class CriandoListaTest {
         System.out.println(listComidaTest);
 
         Comida[] listComidaTestArray = listComidaTest.toArray(new Comida[listComidaTest.size()]);
-//        listComidaTestArray[3] = tomate; Não é possível redimensionar o Array.
+//        listComidaTestArray[3] = tomate; Não é possível redimensionar o Array.ii
         System.out.println(Arrays.toString(listComidaTestArray));
     }
 }
