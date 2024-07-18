@@ -7,6 +7,14 @@ public class Alunos {
         this.idade = idadeDoAluno;
     }
 
+    @Override
+    public String toString() {
+        return
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                '}';
+    }
+
     public String getNome() {
         return nome;
     }

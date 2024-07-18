@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class ListTests {
     private String[] alunos;
@@ -23,5 +27,16 @@ public class ListTests {
         imprimeLista(lista1);
 
         //System.out.println(lista1);
+        System.out.println("===");
+
+        List<Alunos> lista2 = new ArrayList();
+
+        lista2.add(aluno1);
+        lista2.add(aluno2);
+
+//        lista2.forEach(System.out::println);
+
+        List<Alunos> collect = lista2.stream().filter(aluno -> aluno.getIdade() <= 65).toList();
+        collect.forEach(System.out::println);
     }
 }
