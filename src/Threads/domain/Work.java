@@ -15,29 +15,31 @@ public class Work {
 
     public void work() {
         synchronized (obj2) {
+            System.out.println("Work started obj2");
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            ids.add(rand.nextInt(100));
+            ids.add(rand.nextInt(10));
         }
     }
 
     public void work2() {
         synchronized (obj) {
+            System.out.println("Work started obj");
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            ids2.add(rand.nextInt(100));
+            ids2.add(rand.nextInt(10));
         }
     }
 
 
-    public void procced() {
-        for (int i = 0; i < 1000; i++) {
+    public void procced(Object obj) {
+        for (int i = 0; i < 100000; i++) {
             work();
             work2();
         }
@@ -51,7 +53,7 @@ public class Work {
 
             @Override
             public void run() {
-                procced();
+                procced(obj);
             }
         });
         newThread.start();
@@ -59,7 +61,7 @@ public class Work {
         Thread newThread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                procced();
+                procced(obj2);
             }
         });
         newThread2.start();
