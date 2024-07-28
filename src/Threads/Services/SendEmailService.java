@@ -12,9 +12,11 @@ public class SendEmailService implements Runnable{
     @Override
     public void run() {
         while (members.isOpen() || members.pendingEmails() > 0){
+            System.out.println(Thread.currentThread().getName() + " / Dentro do Run, que verifica se members esta aberto.");
             try {
                 String retrEmail = members.retrieveEmails();
                 if (retrEmail == null) continue;
+                System.out.println(Thread.currentThread().getName() + " / Thread espera dois segundo se retrEmail for null.");
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
