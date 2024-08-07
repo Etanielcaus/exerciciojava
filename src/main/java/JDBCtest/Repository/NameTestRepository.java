@@ -43,4 +43,16 @@ public class NameTestRepository {
             throw new RuntimeException(e);
         }
     }
+
+
+    public static void updateName(TestNames testNames) {
+        String sql = "UPDATE `table_test`.`test_names` SET `name` = '%s' WHERE (`id` = '%d');".formatted(testNames.getName(), testNames.getId());
+        try (Connection conn = ConnectionFactory.getConnection();
+             Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate(sql);
+            log.info("id '{}' update, changed '{}'", testNames.getId(), testNames.getName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

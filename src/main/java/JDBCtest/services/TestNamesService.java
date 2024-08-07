@@ -8,10 +8,24 @@ public class TestNamesService {
         NameTestRepository.save(testNames);
     }
     public static void deleteInBetweenIds(int initialId, int finalId){
-        NameTestRepository.deleteInBetween(initialId, finalId);
+        int initialValue = requireId(initialId);
+        int finalValue = requireId(finalId);
+        NameTestRepository.deleteInBetween(initialValue, finalValue);
     }
     public static void deleteSingleId(int id){
+        requireId(id);
         NameTestRepository.deleteWithSingleId(id);
+    }
+    public static void updateTestName(TestNames testNames){
+        requireId(testNames.getId());
+        NameTestRepository.updateName(testNames);
+    }
+
+    private static int requireId(Integer id){
+        if (id == null && id <= 0){
+            throw new IllegalArgumentException("Invalid Value.");
+        }
+        return id;
     }
 
 

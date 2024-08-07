@@ -7,8 +7,11 @@ import JDBCtest.services.TestNamesService;
 public class ConnectionTest {
     public static void main(String[] args) {
         TestNames joaoCarlos = TestNames.builder().name("Pedrão").build();
+        TestNames updateName = TestNames.builder().id(1).name("Pedrão").build();
+
 //        TestNamesService.addToTable(joaoCarlos);
 //        TestNamesService.deleteInBetweenIds(2,5);
-        TestNamesService.deleteSingleId(6);
+//        TestNamesService.deleteSingleId(6);
+        TestNamesService.updateTestName(updateName);
     }
 }
