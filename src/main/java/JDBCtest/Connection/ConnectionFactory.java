@@ -11,7 +11,7 @@ public class ConnectionFactory {
         String password = "root";
 
 
-            return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(url, user, password);
 
     }
 }
