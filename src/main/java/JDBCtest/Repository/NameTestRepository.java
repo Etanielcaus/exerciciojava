@@ -21,4 +21,26 @@ public class NameTestRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public static void deleteInBetween(int initialNumber, int finalNumber) {
+        String sql = "DELETE FROM `table_test`.`test_names` WHERE id BETWEEN %d AND %d".formatted(initialNumber, finalNumber);
+        try (Connection conn = ConnectionFactory.getConnection();
+             Statement stmt = conn.createStatement()) {
+            int i = stmt.executeUpdate(sql);
+            log.info("itens are deleted from the database");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void deleteWithSingleId(int id) {
+        String sql = "DELETE FROM `table_test`.`test_names` WHERE (`id` = '%s');".formatted(id);
+        try (Connection conn = ConnectionFactory.getConnection();
+             Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate(sql);
+            log.info("id = {} deleted from database.", id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
